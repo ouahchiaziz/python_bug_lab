@@ -26,7 +26,7 @@ def clamp_number(value: float, min_val: float, max_val: float) -> float:
     Symptom: Bounds are inverted: returns max_val when value is smaller than min_val.
     Expected: clamp_number(5, 10, 20) -> 10, clamp_number(25, 10, 20) -> 20, clamp_number(15, 10, 20) -> 15.
     """
-    # BUG: Inverted boundary checks
+    # BUG: Inverted boundary checks #fixed
     if value < min_val:
         return min_val
     elif value > max_val:
@@ -51,7 +51,7 @@ def find_max_number(numbers: list) -> int:
     Symptom: Initializes max to 0, which fails when all numbers are negative!
     Expected: find_max_number([-10, -5, -20]) -> -5
     """
-    # BUG: Initializing to 0 fails for all-negative lists
+    # BUG: Initializing to 0 fails for all-negative lists #fixed
     if not numbers:
         return None
 
@@ -70,7 +70,7 @@ def calculate_bmi(weight_kg: float, height_m: float) -> float:
     Symptom: Forgets to square the height.
     Expected: calculate_bmi(70, 1.75) -> ~22.86
     """
-    # BUG: Missing height squared
+    # BUG: Missing height squared #fixed
     if height_m <= 0:
         return None
 
@@ -88,9 +88,10 @@ def is_palindrome(text: str) -> bool:
     Symptom: Case sensitive, so "Racecar" or "Madam" returns False.
     Expected: Case-insensitive check (e.g. "Racecar" -> True).
     """
-    # BUG: Compares without lowercasing
+    # BUG: Compares without lowercasing #fixed
     cleaned = text.replace(" ", "")
-    return cleaned == cleaned[::-1]
+    x = cleaned.lower()
+    return x == x[::-1]
 
 
 def count_vowels(text: str) -> int:
