@@ -52,11 +52,16 @@ def find_max_number(numbers: list) -> int:
     Expected: find_max_number([-10, -5, -20]) -> -5
     """
     # BUG: Initializing to 0 fails for all-negative lists
-    current_max = 0
-    for n in numbers:
-        if n > current_max:
-            current_max = n
-    return current_max
+    if not numbers:
+        return None
+
+    max_number = numbers[0]
+
+    for number in numbers:
+        if number > max_number:
+            max_number = number
+
+    return max_number
 
 
 def calculate_bmi(weight_kg: float, height_m: float) -> float:
