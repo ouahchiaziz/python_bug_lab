@@ -71,7 +71,11 @@ def calculate_bmi(weight_kg: float, height_m: float) -> float:
     Expected: calculate_bmi(70, 1.75) -> ~22.86
     """
     # BUG: Missing height squared
-    return round(weight_kg / height_m, 2)
+    if height_m <= 0:
+        return None
+
+    bmi = weight_kg / (height_m ** 2)
+    return bmi
 
 
 # =====================================================================
