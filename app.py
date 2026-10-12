@@ -124,7 +124,9 @@ def reverse_words(sentence: str) -> str:
     Expected: reverse_words("Hello World") -> "World Hello"
     """
     # BUG: Reverses character stream instead of words
-    return sentence[::-1]
+    words = sentence.split()
+    reversed_words = words[::-1]
+    return " ".join(reversed_words)
 
 
 def get_file_extension(filename: str) -> str:
