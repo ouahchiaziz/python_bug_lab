@@ -161,7 +161,7 @@ def remove_duplicates_preserve_order(items: list) -> list:
     Symptom: Uses set() conversion which shuffles the item order.
     Expected: [3, 1, 2, 3, 2] -> [3, 1, 2]
     """
-    # BUG: list(set(items)) does not guarantee order preservation
+    # BUG: list(set(items)) does not guarantee order preservation # fixed
     result = []
 
     for item in items:
@@ -180,7 +180,7 @@ def sum_even_numbers(numbers: list) -> int:
     total = 0
     for n in numbers:
         # BUG: Condition checks for odd numbers
-        if n % 2 != 0:
+        if n % 2 == 0:
             total += n
     return total
 
