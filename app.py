@@ -238,8 +238,10 @@ def is_valid_password_length(password: str) -> bool:
     Symptom: Returns True when password is LESS than 8 characters!
     Expected: "short" -> False, "strongpassword123" -> True.
     """
-    # BUG: Inverted condition
-    return len(password) < 8
+    # BUG: Inverted condition #fixed
+    if len(password) < 8:
+        return False
+    return len(password) >= 8
 
 
 def format_currency_usd(amount: float) -> str:
