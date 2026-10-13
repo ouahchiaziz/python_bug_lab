@@ -204,7 +204,7 @@ def filter_positive_numbers(numbers: list) -> list:
     Expected: filter_positive_numbers([-2, 0, 3, -1, 5]) -> [3, 5]
     """
     # BUG: >= includes 0, which is not positive
-    return [n for n in numbers if n >= 0]
+    return [n for n in numbers if n > 0]
 
 
 # =====================================================================
