@@ -250,8 +250,8 @@ def format_currency_usd(amount: float) -> str:
     Symptom: Formats with 1 decimal place instead of 2.
     Expected: format_currency_usd(19.9) -> "$19.90"
     """
-    # BUG: .1f instead of .2f
-    return f"${amount:.1f}"
+    # BUG: .1f instead of .2f #fixed
+    return f"${amount:.2f}"
 
 
 def calculate_ticket_price(age: int) -> float:
