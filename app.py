@@ -179,7 +179,7 @@ def sum_even_numbers(numbers: list) -> int:
     """
     total = 0
     for n in numbers:
-        # BUG: Condition checks for odd numbers
+        # BUG: Condition checks for odd numbers #fixed
         if n % 2 == 0:
             total += n
     return total
@@ -191,7 +191,7 @@ def merge_two_dicts(d1: dict, d2: dict) -> dict:
     Symptom: Mutates d1 in-place instead of creating an independent copy.
     Expected: Merged dict returned, d1 remains unchanged.
     """
-    # BUG: Mutates d1 directly
+    # BUG: Mutates d1 directly # fixed
     merged = d1.copy()
     merged.update(d2)
     return merged
@@ -203,7 +203,7 @@ def filter_positive_numbers(numbers: list) -> list:
     Symptom: Uses >= so 0 is erroneously included.
     Expected: filter_positive_numbers([-2, 0, 3, -1, 5]) -> [3, 5]
     """
-    # BUG: >= includes 0, which is not positive
+    # BUG: >= includes 0, which is not positive #fixed
     return [n for n in numbers if n > 0]
 
 
@@ -217,9 +217,8 @@ def is_leap_year(year: int) -> bool:
     Symptom: Checks only divisibility by 4, forgetting the 100/400 century rule.
     Expected: 2000 -> True, 2024 -> True, 1900 -> False, 2100 -> False.
     """
-    # BUG: Incomplete leap year rule
-    return year % 4 == 0
-
+    # BUG: Incomplete leap year rule #fixed
+    return year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
 
 def calculate_average(numbers: list) -> float:
     """
